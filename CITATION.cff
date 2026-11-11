@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it as below."
+title: "Class-conditional conformal and selective prediction on tabular foundation models for small, imbalanced clinical cohorts (code)"
+authors:
+  - family-names: Huynh
+    given-names: Hoang Nhut
+  - family-names: Tran
+    given-names: Anh Tu
+version: 1.0.0
+license: MIT
+date-released: 2026-11-01

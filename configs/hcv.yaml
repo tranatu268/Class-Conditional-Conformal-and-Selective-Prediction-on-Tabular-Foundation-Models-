@@ -1,0 +1,33 @@
+dataset: hcv
+data:
+  # UCI HCV data (ID 571): hcvdat0.csv from the UCI archive, or an ARFF export
+  # of the same table (*.arff). Path relative to the repo root.
+  path: data/HCV/hcvdat0.csv
+  # how to treat '0s=suspect Blood Donor': drop | positive | negative
+  suspect: drop
+
+# 'class' = binary (donor vs any liver disease); 'category' = multi-class
+# {donor, hepatitis, fibrosis, cirrhosis} aggregated back to binary.
+target: class
+
+model: tabpfn
+device: cpu
+
+cv:
+  n_splits: 5
+  n_repeats: 10
+  calib_fraction: 0.3333
+
+conformal:
+  alpha: 0.1
+  scores: [lac, aps]
+  # 'clustered' only applies when target is the multi-class label (category):
+  # per-group quantiles over {donor} vs {hepatitis, fibrosis, cirrhosis}.
+  variants: [marginal, mondrian, clustered]
+
+imbalance:
+  threshold_metric: balanced_accuracy
+  prior_shift: true
+  downsample_majority: null
+
+output_dir: results

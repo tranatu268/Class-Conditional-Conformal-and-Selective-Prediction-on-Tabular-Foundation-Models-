@@ -1,0 +1,232 @@
+{
+  "input": "results\\hcv_tabpfn_class_preds.csv",
+  "alpha": 0.1,
+  "n_splits": 50,
+  "summary": {
+    "marginal_cp_coverage": {
+      "mean": 0.9154735130741092,
+      "ci": 0.009695470781133381,
+      "n": 50
+    },
+    "marginal_cp_risk": {
+      "mean": 0.0,
+      "ci": 0.0,
+      "n": 50
+    },
+    "marginal_cp_balanced_risk": {
+      "mean": 0.0,
+      "ci": 0.0,
+      "n": 50
+    },
+    "marginal_cp_answered_frac_class0": {
+      "mean": 0.9504743431493563,
+      "ci": 0.008240493408454258,
+      "n": 50
+    },
+    "marginal_cp_wrong_answer_frac_class0": {
+      "mean": 0.0,
+      "ci": 0.0,
+      "n": 50
+    },
+    "marginal_cp_answered_frac_class1": {
+      "mean": 0.6666666666666665,
+      "ci": 0.04447457957915637,
+      "n": 50
+    },
+    "marginal_cp_wrong_answer_frac_class1": {
+      "mean": 0.0,
+      "ci": 0.0,
+      "n": 50
+    },
+    "marginal_sm_coverage": {
+      "mean": 0.9154735130741092,
+      "ci": 0.009695470781133381,
+      "n": 50
+    },
+    "marginal_sm_risk": {
+      "mean": 0.0,
+      "ci": 0.0,
+      "n": 50
+    },
+    "marginal_sm_balanced_risk": {
+      "mean": 0.0,
+      "ci": 0.0,
+      "n": 50
+    },
+    "marginal_sm_answered_frac_class0": {
+      "mean": 0.9504743431493563,
+      "ci": 0.008240493408454258,
+      "n": 50
+    },
+    "marginal_sm_wrong_answer_frac_class0": {
+      "mean": 0.0,
+      "ci": 0.0,
+      "n": 50
+    },
+    "marginal_sm_answered_frac_class1": {
+      "mean": 0.6666666666666665,
+      "ci": 0.04447457957915637,
+      "n": 50
+    },
+    "marginal_sm_wrong_answer_frac_class1": {
+      "mean": 0.0,
+      "ci": 0.0,
+      "n": 50
+    },
+    "mondrian_cp_coverage": {
+      "mean": 0.92466738924265,
+      "ci": 0.009643060905113627,
+      "n": 50
+    },
+    "mondrian_cp_risk": {
+      "mean": 0.007376106268749907,
+      "ci": 0.004114847400931139,
+      "n": 50
+    },
+    "mondrian_cp_balanced_risk": {
+      "mean": 0.0042405059714739155,
+      "ci": 0.002362176890045084,
+      "n": 50
+    },
+    "mondrian_cp_answered_frac_class0": {
+      "mean": 0.9202503967554223,
+      "ci": 0.010748305292568292,
+      "n": 50
+    },
+    "mondrian_cp_wrong_answer_frac_class0": {
+      "mean": 0.007880444366073002,
+      "ci": 0.00448748040354609,
+      "n": 50
+    },
+    "mondrian_cp_answered_frac_class1": {
+      "mean": 0.956,
+      "ci": 0.017377366589562817,
+      "n": 50
+    },
+    "mondrian_cp_wrong_answer_frac_class1": {
+      "mean": 0.0,
+      "ci": 0.0,
+      "n": 50
+    },
+    "mondrian_sm_coverage": {
+      "mean": 0.92466738924265,
+      "ci": 0.009643060905113627,
+      "n": 50
+    },
+    "mondrian_sm_risk": {
+      "mean": 0.0001680672268907563,
+      "ci": 0.0003377437373326453,
+      "n": 50
+    },
+    "mondrian_sm_balanced_risk": {
+      "mean": 0.0007692307692307692,
+      "ci": 0.0015458271054840298,
+      "n": 50
+    },
+    "mondrian_sm_answered_frac_class0": {
+      "mean": 0.9532816081819785,
+      "ci": 0.007945469655348614,
+      "n": 50
+    },
+    "mondrian_sm_wrong_answer_frac_class0": {
+      "mean": 0.0,
+      "ci": 0.0,
+      "n": 50
+    },
+    "mondrian_sm_answered_frac_class1": {
+      "mean": 0.7213333333333334,
+      "ci": 0.04081371244930448,
+      "n": 50
+    },
+    "mondrian_sm_wrong_answer_frac_class1": {
+      "mean": 0.0013333333333333333,
+      "ci": 0.0026794336495056517,
+      "n": 50
+    },
+    "full_coverage": {
+      "mean": 1.0,
+      "ci": 0.0,
+      "n": 50
+    },
+    "full_risk": {
+      "mean": 0.007558596396152282,
+      "ci": 0.0019327526337241455,
+      "n": 50
+    },
+    "full_balanced_risk": {
+      "mean": 0.019782754364309648,
+      "ci": 0.006360529913317655,
+      "n": 50
+    },
+    "full_answered_frac_class0": {
+      "mean": 1.0,
+      "ci": 0.0,
+      "n": 50
+    },
+    "full_wrong_answer_frac_class0": {
+      "mean": 0.003565508728619291,
+      "ci": 0.0015117610152913235,
+      "n": 50
+    },
+    "full_answered_frac_class1": {
+      "mean": 1.0,
+      "ci": 0.0,
+      "n": 50
+    },
+    "full_wrong_answer_frac_class1": {
+      "mean": 0.036000000000000004,
+      "ci": 0.01281586055670597,
+      "n": 50
+    }
+  },
+  "paired_tests": {
+    "marginal: conformal vs softmax, risk": {
+      "median_diff_split": 0.0,
+      "p_split": 1.0,
+      "median_diff_repeat": 0.0,
+      "p_repeat": 1.0
+    },
+    "marginal: conformal vs softmax, balanced_risk": {
+      "median_diff_split": 0.0,
+      "p_split": 1.0,
+      "median_diff_repeat": 0.0,
+      "p_repeat": 1.0
+    },
+    "marginal: conformal vs softmax, wrong_answer_frac_class1": {
+      "median_diff_split": 0.0,
+      "p_split": 1.0,
+      "median_diff_repeat": 0.0,
+      "p_repeat": 1.0
+    },
+    "marginal: conformal vs softmax, answered_frac_class1": {
+      "median_diff_split": 0.0,
+      "p_split": 1.0,
+      "median_diff_repeat": 0.0,
+      "p_repeat": 1.0
+    },
+    "mondrian: conformal vs softmax, risk": {
+      "median_diff_split": 0.0,
+      "p_split": 8.720229793087962e-05,
+      "median_diff_repeat": 0.005282315522085343,
+      "p_repeat": 0.001953125
+    },
+    "mondrian: conformal vs softmax, balanced_risk": {
+      "median_diff_split": 0.0,
+      "p_split": 0.0011589645165946741,
+      "median_diff_repeat": 0.0025543819794734326,
+      "p_repeat": 0.048828125
+    },
+    "mondrian: conformal vs softmax, wrong_answer_frac_class1": {
+      "median_diff_split": 0.0,
+      "p_split": 0.31731050786291415,
+      "median_diff_repeat": 0.0,
+      "p_repeat": 1.0
+    },
+    "mondrian: conformal vs softmax, answered_frac_class1": {
+      "median_diff_split": 0.19999999999999996,
+      "p_split": 6.855005762282851e-10,
+      "median_diff_repeat": 0.24,
+      "p_repeat": 0.001953125
+    }
+  }
+}

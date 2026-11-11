@@ -1,0 +1,32 @@
+dataset: icr
+data:
+  # Kaggle "ICR - Identifying Age-Related Conditions" (paths relative to the repo root)
+  train_csv: data/ICR/train.csv
+  greeks_csv: data/ICR/greeks.csv
+
+# 'class' = binary Class; 'alpha' = train multi-class on greeks Alpha (A/B/D/G),
+# aggregate P(B)+P(D)+P(G) back to the binary positive probability.
+target: class
+
+model: tabpfn            # tabpfn | logreg | rf | xgb | lgbm | xgb_w | xgb_cal | ...
+device: cpu              # cpu | cuda (TabPFN only)
+
+cv:
+  n_splits: 5
+  n_repeats: 10
+  calib_fraction: 0.3333 # stratified calibration split inside each training fold
+
+conformal:
+  alpha: 0.1             # target miscoverage
+  scores: [lac, aps]
+  # 'clustered' only applies when target is the multi-class label (alpha):
+  # per-group quantiles over {A} vs {B,D,G}, fixing Mondrian's infeasibility
+  # when rare classes have < ceil(1/alpha)-1 calibration points.
+  variants: [marginal, mondrian, clustered]
+
+imbalance:
+  threshold_metric: balanced_accuracy  # tuned on calibration split
+  prior_shift: true                    # logit-adjustment to uniform prior
+  downsample_majority: null            # e.g. 2.0 = majority:minority <= 2:1 in context
+
+output_dir: results
