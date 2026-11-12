@@ -1,6 +1,6 @@
-# Copyright (c) 2026 Hoang Nhut Huynh and Tran Anh Tu
+# Copyright (c) 2026 Hoang Nhut Huynh
 # SPDX-License-Identifier: MIT
-# Authors: Hoang Nhut Huynh, Tran Anh Tu
+# Author: Hoang Nhut Huynh
 """Print LaTeX table bodies from results/*.json for every model that has been run.
 
 Usage:
@@ -93,8 +93,8 @@ def main():
 
     for score, title in (("lac", "Table III: LAC conformal"), ("aps", "Table S1: APS conformal")):
         print(f"\n% ---------------- {title} ----------------")
-        print("% Cohort / model & Calib. & Coverage & WCC & Gap & Abst. % (empty) & Sel. risk & "
-              "Sel. BA & Dis. answ. % & Dis. missed/100")
+        print("% Cohort / model & Calib. & Coverage & Cov. healthy & Cov. dis. & WCC & Abst. % (empty) & "
+              "Sel. risk & Sel. BA & Dis. answ. % & Dis. missed/100 & Healthy flagged/100")
         for dk, dn in DATASETS:
             if not any((dk, mk) in avail for mk, _ in MODELS):
                 continue
@@ -105,8 +105,10 @@ def main():
                 for i, var in enumerate(("marginal", "mondrian")):
                     m = f"cp_{score}_{var}"
                     cov, _ = get(S, m, "coverage")
+                    c0, _ = get(S, m, "coverage_class0")
+                    c1, _ = get(S, m, "coverage_class1")
                     wcc, wcc_h = get(S, m, "worst_class_coverage")
-                    gap, _ = get(S, m, "coverage_gap")
+                    hf, _ = get(S, m, "wrong_answer_frac_class0")
                     ab, ab_h = get(S, m, "abstention_rate")
                     em, _ = get(S, m, "frac_empty")
                     sr, _ = get(S, m, "selective_risk")
@@ -115,9 +117,9 @@ def main():
                     dm, _ = get(S, m, "wrong_answer_frac_class1")
                     lead = f"{dn} / {mn}" if i == 0 else ""
                     calib = "marginal" if var == "marginal" else "Mondrian"
-                    print(f"{lead} & {calib} & {f(cov)} & {f(wcc, pm=wcc_h)} & {f(gap)} & "
+                    print(f"{lead} & {calib} & {f(cov)} & {f(c0)} & {f(c1)} & {f(wcc, pm=wcc_h)} & "
                           f"{f(ab, 1, ab_h, 100)} ({f(em, 1, None, 100)}) & {f(sr)} & {f(sba)} & "
-                          f"{f(da, 1, None, 100)} & {f(dm, 1, None, 100)} \\\\")
+                          f"{f(da, 1, None, 100)} & {f(dm, 1, None, 100)} & {f(hf, 1, None, 100)} \\\\")
             print("\\midrule")
 
     missing = [f"{dk}_{mk}" for dk, _ in DATASETS for mk, _ in MODELS if (dk, mk) not in avail]
