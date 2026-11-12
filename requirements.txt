@@ -1,12 +1,13 @@
 numpy>=1.24
 pandas>=2.0
-scikit-learn>=1.3
+scikit-learn==1.9.1
 scipy>=1.10
 pyyaml>=6.0
 # TabPFN: the paper used package 9.2.0 with checkpoint tabpfn-v3.5-20260909
 tabpfn==9.2.0
+# paper environment: Python 3.12.9, torch 2.5.1+cu121
 # baselines
-xgboost>=2.0
-lightgbm>=4.0
+xgboost==3.4.1
+lightgbm==4.7.0
 # tests
 pytest>=7.0
