@@ -43,14 +43,16 @@ _SCORES = {"lac": lac_score_matrix, "aps": aps_score_matrix}
 
 
 def _finite_sample_quantile(scores: np.ndarray, alpha: float) -> float:
-    """Conformal quantile: ceil((n+1)(1-alpha))/n empirical quantile (method='higher')."""
+    """Conformal threshold: the ceil((n+1)(1-alpha))-th smallest calibration score."""
     n = len(scores)
     if n == 0:
         return np.inf
-    q = np.ceil((n + 1) * (1.0 - alpha)) / n
-    if q > 1.0:
+    # k-th smallest score by sorting and indexing. np.quantile(..., k/n,
+    # method="higher") returns the (k+1)-th smallest whenever k < n.
+    k = int(np.ceil((n + 1) * (1.0 - alpha)))
+    if k > n:
         return np.inf  # calibration set too small for this alpha
-    return float(np.quantile(scores, q, method="higher"))
+    return float(np.sort(scores)[k - 1])
 
 
 # ---------------------------------------------------------------------------

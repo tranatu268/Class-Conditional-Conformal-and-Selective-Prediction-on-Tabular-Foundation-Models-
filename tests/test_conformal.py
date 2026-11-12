@@ -86,3 +86,12 @@ if __name__ == "__main__":
     test_mondrian_per_class_coverage()
     test_selective_and_multi_mapping()
     print("all conformal sanity checks passed")
+
+
+def test_threshold_is_kth_order_statistic():
+    from icp.conformal import _finite_sample_quantile
+    for n in (9, 20, 29, 136):
+        s = np.arange(1, n + 1, dtype=float)
+        k = int(np.ceil((n + 1) * 0.9))
+        assert _finite_sample_quantile(s, 0.1) == k
+    assert np.isinf(_finite_sample_quantile(np.arange(8, dtype=float), 0.1))
